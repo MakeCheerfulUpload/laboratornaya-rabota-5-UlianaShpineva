@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, top=15mm, right=10mm, bottom=15mm, left=5mm, headsep=-5mm]{geometry}
+\usepackage[english,russian]{babel}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{lettrine} 
+\usepackage{GoudyIn}
+\usepackage{mathtools}
+\usepackage{amssymb}
+%\usepackage{graphicx, type1cm, lettrine}
+
+\usetikzlibrary{calc}
+
+
+\title{Lab6}
+\author{Uliana Shpineva}
+\date{November 2022}
+
+\fancyheadoffset[R]{5cm}
+\fancyhead[C]{96\qquad КНИГА III ПРЕДЛ. IV. ТЕОРЕМА\\}
+\renewcommand{\footrulewidth}{0 mm}
+\renewcommand{\headrulewidth}{0 mm}
+\renewcommand\LettrineFontHook{\GoudyInfamily}
+\fancyfoot{}
+
+
+\begin{document}
+\thispagestyle{fancy}
+\begin{minipage}[H]{0.3\textwidth}
+\begin{tikzpicture}[line width=2pt]
+\coordinate (A) at (-29.5mm,-6mm);
+\coordinate (B) at (-24mm,-18mm);
+\coordinate (C) at ((22mm, -20mm);
+\coordinate (D) at (29mm, -8mm);
+\coordinate (E) at (intersection of A--C and B--D);
+\coordinate (F) at (0,0);
+\fill[blue!70] (E) -- ($(E)!0.5cm!(F)$) arc (85:11:0.5) -- cycle;
+\fill[yellow] (E) -- ($(E)!0.5cm!(D)$) arc (12:-14:0.5) -- cycle;
+\draw[draw=red] (B) node [below left]  {\scriptsize B} -- (D) node [right]  {\scriptsize D};
+\draw (A) node [left]  {\scriptsize A} -- (C) node [below right]  {\scriptsize C};
+\draw[draw=blue!70] (0, 0) circle (30mm);
+\fill[black] (E) node [below] {\scriptsize E};
+\draw[dashed] (E) -- (F) node [above] {\scriptsize F};
+\end{tikzpicture}
+\end{minipage}
+\qquad\qquad
+\begin{minipage}[bs]{0.55\textwidth}
+\vspace{2cm}
+\lettrine[lines=4]{E}{} \textit{сли в круге две прямые, не проходящие через центр, пересекаются, они не делят друг друга пополам.}\\
+
+\qquad Если одна из прямых проходит через центр, очевидно, она ее не может рассекать пополам другая прямая,
+не проходящая через центр.
+
+\qquad Но если ни одна из прямых \tikz\draw[line width=2pt] (0,0.2cm) node [above] {\scriptsize A} -- (1.5cm,0.2cm) node [above]  {\scriptsize C}; или \tikz\draw[line width=2pt, draw=red] (0,0.2cm) node [above] {\scriptsize B} -- (1.5cm,0.2cm) node [above]  {\scriptsize D}; не проходит через центр, проведем \tikz\draw[line width=2pt, dashed] (0,0.2cm) node [above] {\scriptsize E} -- (1.5cm,0.2cm) node [above]  {\scriptsize F}; из центра
+к точке их пересечения.
+
+\begin{center}
+Если \tikz\draw[line width=2pt] (0,0.2cm) node [above] {\scriptsize A} -- (1.5cm,0.2cm) node [above]  {\scriptsize C}; делится пополам,
+
+\tikz\draw[line width=2pt, dashed] (0,0.2cm) node [above] {\scriptsize E} -- (1.5cm,0.2cm) node [above]  {\scriptsize F}; 
+$\perp$ ей (пр. III.$_3$)
+
+$\therefore$ \begin{tikzpicture}[line width=2pt]
+\fill[blue!70] (0,-0.5) node [left] {\scriptsize E} -- (85:0)  node [above] {\scriptsize F} arc (85:11:0.5)  -- (0,-0.5); 
+\fill[fill=yellow] (0,-0.5) -- (-41:0.6) arc (11:-14:0.5) -- cycle;
+\fill[black] (-41:0.6) node [right] {\scriptsize C};
+\end{tikzpicture}
+$=$ 
+\begin{tikzpicture}\draw[line width=1pt] (0,0) -- (0,0.5);
+\draw[line width=2pt] (90:0.5) arc (90:180:0.5);
+\draw[line width=1pt] (0,0) -- (-0.5,0);
+\end{tikzpicture}
+
+и если \tikz\draw[line width=2pt, draw=red] (0,0.2cm) node [above] {\scriptsize B} -- (1.5cm,0.2cm) node [above]  {\scriptsize D}; делится пополам,
+
+\tikz\draw[line width=2pt, dashed] (0,0.2cm) node [above] {\scriptsize E} -- (1.5cm,0.2cm) node [above]  {\scriptsize F}; $\perp$ \tikz\draw[line width=2pt, draw=red] (0,0.2cm) node [above] {\scriptsize B} -- (1.5cm,0.2cm) node [above]  {\scriptsize D}; (пр. III.$_3$)
+
+$\therefore$ \tikz\fill[blue!70] (0,-0.5) node [left] {\scriptsize E} -- (85:0)  node [above] {\scriptsize F} arc (85:11:0.5) node [below, right] {\scriptsize D}  -- (0,-0.5); $=$ 
+\begin{tikzpicture}\draw[line width=1pt] (0,0) -- (0,0.5);
+\draw[line width=2pt] (90:0.5) arc (90:180:0.5);
+\draw[line width=1pt] (0,0) -- (-0.5,0);
+\end{tikzpicture};
+
+и $\therefore$ \tikz\fill[blue!70] (0,-0.5) node [left] {\scriptsize E} -- (85:0)  node [above] {\scriptsize F} arc (85:11:0.5) node [below, right] {\scriptsize D}  -- (0,-0.5); $=$ 
+\begin{tikzpicture}[line width=2pt]
+\fill[blue!70] (0,-0.5) node [left] {\scriptsize E} -- (85:0)  node [above] {\scriptsize F} arc (85:11:0.5)  -- (0,-0.5); 
+\fill[fill=yellow] (0,-0.5) -- (-41:0.6) arc (11:-14:0.5) -- cycle;
+\fill[black] (-41:0.6) node [right] {\scriptsize C};
+\end{tikzpicture};
+
+часть равна целому, что невозможно.
+
+$\therefore$ \tikz\draw[line width=2pt] (0,0.2cm) node [above] {\scriptsize A} -- (1.5cm,0.2cm) node [above]  {\scriptsize C}; и \tikz\draw[line width=2pt, draw=red] (0,0.2cm) node [above] {\scriptsize B} -- (1.5cm,0.2cm) node [above]  {\scriptsize D}; не делят друг друга пополам.
+
+\begin{flushright}
+ч. т. д.
+\end{flushright}
+\end{center}
+\end{minipage}
+\end{document}
